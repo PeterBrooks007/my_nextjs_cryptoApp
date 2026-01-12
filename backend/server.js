@@ -36,7 +36,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "https://mywebsitesamples.com"],
+    origin: ["http://localhost:5173", "https://www.mywebsitesamples.com"],
     methods: ["GET", "POST"],
   },
 });
@@ -49,7 +49,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://mywebsitesamples.com",
+      "https://www.mywebsitesamples.com",
       "http://localhost:5173",
     ],
     credentials: true,
