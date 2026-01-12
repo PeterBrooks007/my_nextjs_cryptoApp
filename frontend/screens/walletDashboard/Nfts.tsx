@@ -1,0 +1,48 @@
+"use client";
+
+import { Skeleton } from "@/components/ui/skeleton";
+import React, { useEffect, useState } from "react";
+import TickerTapeWidget from "@/components/TradeviewWidgets/TickerTapeWidget";
+import { useCurrentUser } from "@/hooks/useAuth";
+import WalletLeft from "@/components/WalletLeft";
+import NftsComp from "@/components/NftsComp";
+
+const Nfts = () => {
+  const [pageLoading, setPageLoading] = useState(true);
+  const { data: user } = useCurrentUser();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPageLoading(false);
+    }, 200);
+  }, []);
+
+  if (pageLoading || !user) {
+    return (
+      <div className="flex w-full  px-4 justify-center mt-4">
+        <Skeleton className="w-full h-5" />
+      </div>
+    );
+  }
+  return (
+    <div className="mb-20 lg:mb-5">
+      {/* TickerTapeWidget */}
+      <div className="-mx-6 -mt-1 overflow-hidden">
+        <TickerTapeWidget />
+      </div>
+
+      <div className="flex pl-0 lg:pl-1.5">
+        <div className="hidden xl:block w-0 min-w-full lg:min-w-0 lg:w-[40%] xl:w-[40%] 2xl:w-[25%] px-2 pt-1 lg:pt-5">
+          <WalletLeft />
+        </div>
+        <div className="w-full lg:w-full xl:w-full 2xl:w-[75%] p-0  lg:p-5">
+          <div className="w-full h-full  xl:border p-3 xl:p-6 ">
+            <NftsComp />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Nfts;
