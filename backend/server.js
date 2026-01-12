@@ -36,7 +36,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "https://tradexs10.com"],
+    origin: ["http://localhost:5173", "https://my-nextjs-crypto-app-frontend.vercel.app"],
     methods: ["GET", "POST"],
   },
 });
@@ -49,7 +49,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://tradexs10.com",
+      "https://my-nextjs-crypto-app-frontend.vercel.app",
       "http://localhost:5173",
     ],
     credentials: true,
