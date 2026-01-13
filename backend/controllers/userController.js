@@ -666,7 +666,7 @@ const loginUser = asyncHandler(async (req, res) => {
       httpOnly: true,
       expires: new Date(Date.now() + 1000 * 86400),
       secure: process.env.NODE_ENV === "production", // Secure cookies in production only
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // Use "none" in production, "lax" otherwise
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "lax", // Use "none" in production, "lax" otherwise
     });
     //send user data
     res.status(201).json({ data: newUser, token });
