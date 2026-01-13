@@ -90,7 +90,7 @@ export default function TopBar() {
         {/* RIGHT */}
         <div className="flex items-center gap-2">
           {/* THEME MENU */}
-          <DropdownMenu>
+            <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="outline"
@@ -104,22 +104,22 @@ export default function TopBar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem
-                className={theme === "light" ? "bg-green-600 text-white" : ""}
+                className={theme === "light" ? "bg-green-600 text-white text-base" : "text-base"}
                 onClick={() => setTheme("light")}
               >
-                <Sun className={theme === "light" ? "text-white" : ""} /> Light
+                <Sun className={theme === "light" ? "text-white size-5" : "size-5"} /> Light
               </DropdownMenuItem>
               <DropdownMenuItem
-                className={theme === "dark" ? "bg-green-600 text-white" : ""}
+                className={theme === "dark" ? "bg-green-600 text-white text-base" : "text-base"}
                 onClick={() => setTheme("dark")}
               >
-                <Moon className={theme === "dark" ? "text-white" : ""} /> Dark
+                <Moon className={theme === "dark" ? "text-white size-5" : "size-5"} /> Dark
               </DropdownMenuItem>
               <DropdownMenuItem
-                className={theme === "system" ? "bg-green-600 text-white" : ""}
+                className={theme === "system" ? "bg-green-600 text-white text-base" : "text-base"}
                 onClick={() => setTheme("system")}
               >
-                <Laptop className={theme === "system" ? "text-white" : ""} />{" "}
+                <Laptop className={theme === "system" ? "text-white size-5" : "size-5"} />{" "}
                 System
               </DropdownMenuItem>
             </DropdownMenuContent>

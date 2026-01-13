@@ -90,7 +90,7 @@ const QuickActions = () => {
           onClick={() => setOpenReward(true)}
         >
           <div className="relative inline-block">
-            <Badge className="absolute -top-1 -right-3 h-5 min-w-5 rounded-full px-1 tabular-nums opacity-100  pointer-events-none">
+            <Badge className="absolute top-0 -right-3 h-5 min-w-5 rounded-full px-1 tabular-nums opacity-100  pointer-events-none">
               {user?.giftRewards?.length}
             </Badge>
             <Image

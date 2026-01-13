@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Moon, Sun, Monitor, ChevronDown, Laptop } from "lucide-react";
+import { Moon, Sun, Laptop } from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface Props {
@@ -66,21 +65,57 @@ export default function AuthMobileHeader({
           {/* THEME MENU */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon">
+              <Button
+                variant="outline"
+                size="icon"
+                className="relative overflow-hidden  bg-[#f2f2f2] text-[#202020] dark:bg-muted dark:text-white border-none"
+              >
                 <Sun className="h-[1.3rem]! w-[1.3rem]! scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
                 <Moon className="absolute h-[1.3rem]! w-[1.3rem]! scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
                 <span className="sr-only">Toggle theme</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setTheme("light")}>
-                <Sun /> Light
+              <DropdownMenuItem
+                className={
+                  theme === "light"
+                    ? "bg-green-600 text-white text-base"
+                    : "text-base"
+                }
+                onClick={() => setTheme("light")}
+              >
+                <Sun
+                  className={theme === "light" ? "text-white size-5" : "size-5"}
+                />{" "}
+                Light
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("dark")}>
-                <Moon /> Dark
+              <DropdownMenuItem
+                className={
+                  theme === "dark"
+                    ? "bg-green-600 text-white text-base"
+                    : "text-base"
+                }
+                onClick={() => setTheme("dark")}
+              >
+                <Moon
+                  className={theme === "dark" ? "text-white size-5" : "size-5"}
+                />{" "}
+                Dark
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("system")}>
-                <Laptop /> System
+              <DropdownMenuItem
+                className={
+                  theme === "system"
+                    ? "bg-green-600 text-white text-base"
+                    : "text-base"
+                }
+                onClick={() => setTheme("system")}
+              >
+                <Laptop
+                  className={
+                    theme === "system" ? "text-white size-5" : "size-5"
+                  }
+                />{" "}
+                System
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
